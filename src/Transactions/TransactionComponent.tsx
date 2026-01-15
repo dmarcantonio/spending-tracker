@@ -4,7 +4,8 @@ import { Transaction } from './Transaction';
 const TransactionComponent = ({ transaction }: { transaction: Transaction }) => {
     const [open, setOpen] = React.useState(false);
 
-    const formattedDate = transaction.date.toLocaleDateString();
+    // Format date: weekday, day numeric
+    const formattedDate = transaction.date.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric' }); 
     const amountStr = `$${transaction.amount.toFixed(2)}`;
 
     return (
